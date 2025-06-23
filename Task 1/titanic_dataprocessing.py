@@ -33,7 +33,7 @@ df[['Age', 'Fare']] = scaler.fit_transform(df[['Age', 'Fare']])
 sns.boxplot(data=df[['Age', 'Fare']])
 plt.title("Boxplot of Age & Fare")
 plt.show()
-plt.savefig("boxplot.png")
+# plt.savefig("boxplot.png")
 
 # Removing outliers using IQR Q3 - Q1
 Q1 = df[['Age', 'Fare']].quantile(0.25)
