@@ -9,10 +9,18 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (confusion_matrix, classification_report,
                              roc_curve, roc_auc_score, precision_score, recall_score)
 
-# Load dataset
-data = load_breast_cancer()
-X = pd.DataFrame(data.data, columns=data.feature_names)
-y = pd.Series(data.target)
+# Load dataset from CSV
+df = pd.read_csv('breast_cancer.csv')
+
+# Drop unnecessary columns (like ID or unnamed index if present)
+df.drop(columns=['id', 'Unnamed: 32'], inplace=True, errors='ignore')
+
+# Encode target: 'M' (Malignant) → 1, 'B' (Benign) → 0
+df['diagnosis'] = df['diagnosis'].map({'M': 1, 'B': 0})
+
+# Separate features and target
+X = df.drop('diagnosis', axis=1)
+y = df['diagnosis']
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
