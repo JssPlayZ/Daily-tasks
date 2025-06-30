@@ -38,8 +38,8 @@ Train and evaluate Decision Tree and Random Forest classifiers on a medical data
 
 ## 🖼️ Visuals
 
-### 🔹 ROC Curve
+### 🔹 Decision  Tree
 ![Decision Tree](decision_tree.png)
 
-### 🔹 Confusion Matrix
+### 🔹 Feature Importance
 ![Feature Importance](feature_importance.png)
